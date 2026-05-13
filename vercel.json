@@ -1,3 +1,11 @@
 {
-  "framework": "nextjs"
+  "buildCommand": "npm run build",
+  "outputDirectory": "out",
+  "framework": null,
+  "rewrites": [
+    { "source": "/products/:collection/:slug/", "destination": "/products/:collection/:slug/index.html" },
+    { "source": "/products/:collection/:slug",  "destination": "/products/:collection/:slug/index.html" },
+    { "source": "/tr/products/:collection/:slug/", "destination": "/tr/products/:collection/:slug/index.html" },
+    { "source": "/tr/products/:collection/:slug",  "destination": "/tr/products/:collection/:slug/index.html" }
+  ]
 }
