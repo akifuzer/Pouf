@@ -7,5 +7,5 @@ node_modules/
 .DS_Store
 *.log
 public/images-original/
-products/
-products2/
+/products/
+/products2/
