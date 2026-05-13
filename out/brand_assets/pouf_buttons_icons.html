@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pouf — Button & Icon System</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+<link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;700;800&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'League Spartan', sans-serif;
+    background: #1C3A2E;
+    padding: 48px 44px 60px;
+    color: #FEFEFE;
+  }
+
+  /* PAGE HEADER */
+  .page-header {
+    display: flex; align-items: flex-end; justify-content: space-between;
+    border-bottom: 0.5px solid rgba(254,254,254,0.15);
+    padding-bottom: 24px; margin-bottom: 48px;
+  }
+  .page-logo { font-size: 36px; font-weight: 800; letter-spacing: -0.02em; color: #FEFEFE; }
+  .page-logo span { color: #FF914D; }
+  .page-doc { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(254,254,254,0.4); text-align: right; }
+  .page-doc strong { display: block; font-size: 13px; font-weight: 700; color: #FEFEFE; margin-top: 3px; letter-spacing: 0.06em; }
+
+  /* SECTIONS */
+  .section { margin-bottom: 44px; }
+  .sec-label {
+    font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: rgba(254,254,254,0.4); font-weight: 500;
+    margin-bottom: 20px; padding-bottom: 10px;
+    border-bottom: 0.5px solid rgba(254,254,254,0.12);
+  }
+  .row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
+  .row-label {
+    font-size: 10px; color: rgba(254,254,254,0.35); width: 90px; flex-shrink: 0;
+    letter-spacing: 0.06em; text-transform: uppercase;
+  }
+  .divider { width: 1px; height: 28px; background: rgba(254,254,254,0.15); display: inline-block; margin: 0 4px; }
+
+  /* BUTTONS */
+  .btn {
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+    cursor: pointer; border: none; transition: all 0.15s;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .btn-sm  { font-size: 11px; padding: 9px 18px; }
+  .btn-md  { font-size: 13px; padding: 13px 26px; }
+  .btn-lg  { font-size: 15px; padding: 16px 36px; }
+  .btn-pill { border-radius: 100px; }
+
+  .btn-orange        { background: #FF914D; color: #000; }
+  .btn-orange:hover  { background: #e87a3a; }
+  .btn-black         { background: #000; color: #FEFEFE; }
+  .btn-black:hover   { background: #FF914D; color: #000; }
+  .btn-white         { background: #FEFEFE; color: #000; }
+  .btn-white:hover   { background: #FF914D; }
+
+  .btn-outline-white        { background: transparent; color: #FEFEFE; border: 2px solid #FEFEFE; }
+  .btn-outline-white:hover  { background: #FEFEFE; color: #000; }
+  .btn-outline-orange       { background: transparent; color: #FF914D; border: 2px solid #FF914D; }
+  .btn-outline-orange:hover { background: #FF914D; color: #000; }
+
+  .btn-ghost        { background: transparent; color: #FEFEFE; border: none; padding-left: 0; padding-right: 0; border-bottom: 2px solid #FF914D; }
+  .btn-ghost:hover  { color: #FF914D; }
+
+  .btn-blue          { background: #004AAD; color: #FEFEFE; }
+  .btn-blue:hover    { background: #0057cc; }
+  .btn-yellow        { background: #FFDE59; color: #000; }
+  .btn-yellow:hover  { background: #f0cc30; }
+  .btn-purple        { background: #8C52FF; color: #FEFEFE; }
+  .btn-purple:hover  { background: #7a3ef0; }
+
+  .btn-disabled { opacity: 0.3; cursor: not-allowed; pointer-events: none; }
+
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .spin { animation: spin 0.9s linear infinite; display: inline-block; }
+
+  /* ICON BUTTONS */
+  .icon-btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    cursor: pointer; border: none; transition: all 0.15s;
+  }
+  .icon-btn-sq   { width: 44px; height: 44px; font-size: 20px; }
+  .icon-btn-sm   { width: 34px; height: 34px; font-size: 16px; }
+  .icon-btn-lg   { width: 56px; height: 56px; font-size: 24px; }
+  .icon-btn-round { border-radius: 50%; }
+
+  .ib-orange       { background: #FF914D; color: #000; }
+  .ib-orange:hover { background: #e87a3a; }
+  .ib-black        { background: #000; color: #FEFEFE; }
+  .ib-black:hover  { background: #FF914D; color: #000; }
+  .ib-white        { background: #FEFEFE; color: #000; }
+  .ib-white:hover  { background: #FF914D; }
+  .ib-outline        { background: transparent; color: #FEFEFE; border: 2px solid #FEFEFE; }
+  .ib-outline:hover  { background: #FEFEFE; color: #000; }
+  .ib-ghost        { background: transparent; color: rgba(254,254,254,0.55); border: none; }
+  .ib-ghost:hover  { color: #FF914D; }
+  .ib-blue         { background: #004AAD; color: #FEFEFE; }
+  .ib-yellow       { background: #FFDE59; color: #000; }
+  .ib-purple       { background: #8C52FF; color: #FEFEFE; }
+
+  /* BADGE */
+  .badge-wrap { position: relative; display: inline-flex; }
+  .badge {
+    position: absolute; top: -7px; right: -7px;
+    width: 18px; height: 18px; background: #FF914D; border-radius: 50%;
+    font-size: 10px; font-weight: 800; color: #000;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'League Spartan', sans-serif;
+  }
+
+  /* ICON LIBRARY */
+  .icon-grid { display: flex; gap: 24px; flex-wrap: wrap; margin-top: 4px; }
+  .icon-item { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+  .icon-item i { font-size: 24px; color: #FEFEFE; transition: color 0.15s; }
+  .icon-item:hover i { color: #FF914D; }
+  .icon-name { font-size: 9px; color: rgba(254,254,254,0.35); letter-spacing: 0.06em; text-transform: uppercase; }
+
+  /* COLOR CHIPS */
+  .color-chips { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 4px; }
+  .chip { display: flex; flex-direction: column; gap: 6px; }
+  .chip-block { width: 56px; height: 36px; }
+  .chip-label { font-size: 9px; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(254,254,254,0.4); }
+  .chip-hex { font-size: 10px; color: rgba(254,254,254,0.6); font-weight: 500; }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <div class="page-logo">po<span>u</span>f</div>
+  <div class="page-doc">
+    Component library
+    <strong>Button & Icon System</strong>
+  </div>
+</div>
+
+<!-- PRIMARY BUTTONS -->
+<div class="section">
+  <div class="sec-label">Primary buttons</div>
+  <div class="row">
+    <span class="row-label">Orange</span>
+    <button class="btn btn-orange btn-md">Browse Collection</button>
+    <button class="btn btn-orange btn-md"><i class="ti ti-arrow-right"></i>Discover now</button>
+    <button class="btn btn-orange btn-md btn-pill">Shop now</button>
+  </div>
+  <div class="row">
+    <span class="row-label">Black</span>
+    <button class="btn btn-black btn-md">Browse Collection</button>
+    <button class="btn btn-black btn-md"><i class="ti ti-arrow-right"></i>Discover now</button>
+    <button class="btn btn-black btn-md btn-pill">Shop now</button>
+  </div>
+  <div class="row">
+    <span class="row-label">White</span>
+    <button class="btn btn-white btn-md">Browse Collection</button>
+    <button class="btn btn-white btn-md"><i class="ti ti-arrow-right"></i>Discover now</button>
+    <button class="btn btn-white btn-md btn-pill">Shop now</button>
+  </div>
+</div>
+
+<!-- OUTLINED & GHOST -->
+<div class="section">
+  <div class="sec-label">Outlined & ghost</div>
+  <div class="row">
+    <span class="row-label">Outline white</span>
+    <button class="btn btn-outline-white btn-md">View Catalogue</button>
+    <button class="btn btn-outline-white btn-md"><i class="ti ti-download"></i>Download</button>
+    <button class="btn btn-outline-white btn-md btn-pill">Learn more</button>
+  </div>
+  <div class="row">
+    <span class="row-label">Outline orange</span>
+    <button class="btn btn-outline-orange btn-md">Contact Us</button>
+    <button class="btn btn-outline-orange btn-md"><i class="ti ti-mail"></i>Get in touch</button>
+    <button class="btn btn-outline-orange btn-md btn-pill">Request quote</button>
+  </div>
+  <div class="row">
+    <span class="row-label">Ghost</span>
+    <button class="btn btn-ghost btn-md">Learn more →</button>
+    <button class="btn btn-ghost btn-md">View all products →</button>
+  </div>
+</div>
+
+<!-- ALTERNATIVE COLORS -->
+<div class="section">
+  <div class="sec-label">Alternative colors</div>
+  <div class="row">
+    <span class="row-label">Blue</span>
+    <button class="btn btn-blue btn-md"><i class="ti ti-world"></i>Visit Showroom</button>
+    <button class="btn btn-blue btn-md btn-pill">Explore</button>
+  </div>
+  <div class="row">
+    <span class="row-label">Yellow</span>
+    <button class="btn btn-yellow btn-md"><i class="ti ti-star"></i>Featured</button>
+    <button class="btn btn-yellow btn-md btn-pill">New Arrivals</button>
+  </div>
+  <div class="row">
+    <span class="row-label">Purple</span>
+    <button class="btn btn-purple btn-md"><i class="ti ti-sparkles"></i>New collection</button>
+    <button class="btn btn-purple btn-md btn-pill">Discover</button>
+  </div>
+</div>
+
+<!-- SIZES -->
+<div class="section">
+  <div class="sec-label">Sizes</div>
+  <div class="row">
+    <span class="row-label">Small</span>
+    <button class="btn btn-orange btn-sm">Shop now</button>
+    <button class="btn btn-outline-white btn-sm">Learn more</button>
+    <button class="btn btn-black btn-sm"><i class="ti ti-arrow-right"></i>Next</button>
+  </div>
+  <div class="row">
+    <span class="row-label">Default</span>
+    <button class="btn btn-orange btn-md">Shop now</button>
+    <button class="btn btn-outline-white btn-md">Learn more</button>
+    <button class="btn btn-black btn-md"><i class="ti ti-arrow-right"></i>Next</button>
+  </div>
+  <div class="row">
+    <span class="row-label">Large</span>
+    <button class="btn btn-orange btn-lg">Shop now</button>
+    <button class="btn btn-outline-white btn-lg">Learn more</button>
+    <button class="btn btn-black btn-lg"><i class="ti ti-arrow-right"></i>Next</button>
+  </div>
+</div>
+
+<!-- ICON BUTTONS SQUARE -->
+<div class="section">
+  <div class="sec-label">Icon buttons — square</div>
+  <div class="row">
+    <span class="row-label">Styles</span>
+    <button class="icon-btn icon-btn-sq ib-orange" aria-label="Search"><i class="ti ti-search"></i></button>
+    <button class="icon-btn icon-btn-sq ib-black" aria-label="Cart"><i class="ti ti-shopping-bag"></i></button>
+    <button class="icon-btn icon-btn-sq ib-white" aria-label="Heart"><i class="ti ti-heart"></i></button>
+    <button class="icon-btn icon-btn-sq ib-outline" aria-label="Menu"><i class="ti ti-menu-2"></i></button>
+    <button class="icon-btn icon-btn-sq ib-ghost" aria-label="Close"><i class="ti ti-x"></i></button>
+    <div class="divider"></div>
+    <button class="icon-btn icon-btn-sq ib-blue" aria-label="Info"><i class="ti ti-info-circle"></i></button>
+    <button class="icon-btn icon-btn-sq ib-yellow" aria-label="Star"><i class="ti ti-star"></i></button>
+    <button class="icon-btn icon-btn-sq ib-purple" aria-label="Bell"><i class="ti ti-bell"></i></button>
+  </div>
+  <div class="row">
+    <span class="row-label">Sizes</span>
+    <button class="icon-btn icon-btn-sm ib-orange" aria-label="Back"><i class="ti ti-arrow-left"></i></button>
+    <button class="icon-btn icon-btn-sq ib-black" aria-label="Menu"><i class="ti ti-menu-2"></i></button>
+    <button class="icon-btn icon-btn-lg ib-orange" aria-label="Next"><i class="ti ti-arrow-right"></i></button>
+  </div>
+</div>
+
+<!-- ICON BUTTONS ROUND -->
+<div class="section">
+  <div class="sec-label">Icon buttons — round</div>
+  <div class="row">
+    <span class="row-label">Styles</span>
+    <button class="icon-btn icon-btn-sq icon-btn-round ib-orange" aria-label="Search"><i class="ti ti-search"></i></button>
+    <button class="icon-btn icon-btn-sq icon-btn-round ib-black" aria-label="Cart"><i class="ti ti-shopping-bag"></i></button>
+    <button class="icon-btn icon-btn-sq icon-btn-round ib-white" aria-label="Heart"><i class="ti ti-heart"></i></button>
+    <button class="icon-btn icon-btn-sq icon-btn-round ib-outline" aria-label="Menu"><i class="ti ti-menu-2"></i></button>
+    <button class="icon-btn icon-btn-sq icon-btn-round ib-ghost" aria-label="Close"><i class="ti ti-x"></i></button>
+    <div class="divider"></div>
+    <button class="icon-btn icon-btn-sq icon-btn-round ib-blue" aria-label="Info"><i class="ti ti-info-circle"></i></button>
+    <button class="icon-btn icon-btn-sq icon-btn-round ib-yellow" aria-label="Star"><i class="ti ti-star"></i></button>
+    <button class="icon-btn icon-btn-sq icon-btn-round ib-purple" aria-label="Bell"><i class="ti ti-bell"></i></button>
+  </div>
+  <div class="row">
+    <span class="row-label">Sizes</span>
+    <button class="icon-btn icon-btn-sm icon-btn-round ib-orange" aria-label="Back"><i class="ti ti-arrow-left"></i></button>
+    <button class="icon-btn icon-btn-sq icon-btn-round ib-black" aria-label="Menu"><i class="ti ti-menu-2"></i></button>
+    <button class="icon-btn icon-btn-lg icon-btn-round ib-orange" aria-label="Next"><i class="ti ti-arrow-right"></i></button>
+  </div>
+</div>
+
+<!-- STATES -->
+<div class="section">
+  <div class="sec-label">States & extras</div>
+  <div class="row">
+    <span class="row-label">Disabled</span>
+    <button class="btn btn-orange btn-md btn-disabled" disabled>Browse Collection</button>
+    <button class="btn btn-outline-white btn-md btn-disabled" disabled>View Catalogue</button>
+  </div>
+  <div class="row">
+    <span class="row-label">Loading</span>
+    <button class="btn btn-orange btn-md"><i class="ti ti-loader spin"></i>Loading...</button>
+    <button class="btn btn-outline-white btn-md"><i class="ti ti-loader spin"></i>Please wait</button>
+  </div>
+  <div class="row">
+    <span class="row-label">With badge</span>
+    <div class="badge-wrap">
+      <button class="icon-btn icon-btn-sq ib-black" aria-label="Cart"><i class="ti ti-shopping-bag"></i></button>
+      <span class="badge">3</span>
+    </div>
+    <div class="badge-wrap">
+      <button class="icon-btn icon-btn-sq ib-outline" aria-label="Notifications"><i class="ti ti-bell"></i></button>
+      <span class="badge">!</span>
+    </div>
+    <div class="badge-wrap">
+      <button class="icon-btn icon-btn-sq icon-btn-round ib-black" aria-label="Cart"><i class="ti ti-shopping-bag"></i></button>
+      <span class="badge">5</span>
+    </div>
+  </div>
+</div>
+
+<!-- ICON LIBRARY -->
+<div class="section">
+  <div class="sec-label">Icon library — Pouf UI set</div>
+  <div class="icon-grid">
+    <div class="icon-item"><i class="ti ti-search"></i><span class="icon-name">search</span></div>
+    <div class="icon-item"><i class="ti ti-shopping-bag"></i><span class="icon-name">cart</span></div>
+    <div class="icon-item"><i class="ti ti-heart"></i><span class="icon-name">wishlist</span></div>
+    <div class="icon-item"><i class="ti ti-user"></i><span class="icon-name">account</span></div>
+    <div class="icon-item"><i class="ti ti-menu-2"></i><span class="icon-name">menu</span></div>
+    <div class="icon-item"><i class="ti ti-x"></i><span class="icon-name">close</span></div>
+    <div class="icon-item"><i class="ti ti-arrow-right"></i><span class="icon-name">next</span></div>
+    <div class="icon-item"><i class="ti ti-arrow-left"></i><span class="icon-name">prev</span></div>
+    <div class="icon-item"><i class="ti ti-chevron-down"></i><span class="icon-name">expand</span></div>
+    <div class="icon-item"><i class="ti ti-share"></i><span class="icon-name">share</span></div>
+    <div class="icon-item"><i class="ti ti-download"></i><span class="icon-name">download</span></div>
+    <div class="icon-item"><i class="ti ti-mail"></i><span class="icon-name">contact</span></div>
+    <div class="icon-item"><i class="ti ti-phone"></i><span class="icon-name">phone</span></div>
+    <div class="icon-item"><i class="ti ti-map-pin"></i><span class="icon-name">location</span></div>
+    <div class="icon-item"><i class="ti ti-external-link"></i><span class="icon-name">external</span></div>
+    <div class="icon-item"><i class="ti ti-info-circle"></i><span class="icon-name">info</span></div>
+    <div class="icon-item"><i class="ti ti-check"></i><span class="icon-name">confirm</span></div>
+    <div class="icon-item"><i class="ti ti-star"></i><span class="icon-name">featured</span></div>
+    <div class="icon-item"><i class="ti ti-bell"></i><span class="icon-name">notify</span></div>
+    <div class="icon-item"><i class="ti ti-rotate"></i><span class="icon-name">360°</span></div>
+    <div class="icon-item"><i class="ti ti-zoom-in"></i><span class="icon-name">zoom</span></div>
+    <div class="icon-item"><i class="ti ti-adjustments-horizontal"></i><span class="icon-name">filter</span></div>
+    <div class="icon-item"><i class="ti ti-layout-grid"></i><span class="icon-name">grid</span></div>
+    <div class="icon-item"><i class="ti ti-sparkles"></i><span class="icon-name">new</span></div>
+    <div class="icon-item"><i class="ti ti-player-play"></i><span class="icon-name">play</span></div>
+    <div class="icon-item"><i class="ti ti-tag"></i><span class="icon-name">tag</span></div>
+    <div class="icon-item"><i class="ti ti-truck"></i><span class="icon-name">delivery</span></div>
+    <div class="icon-item"><i class="ti ti-shield-check"></i><span class="icon-name">warranty</span></div>
+    <div class="icon-item"><i class="ti ti-refresh"></i><span class="icon-name">return</span></div>
+    <div class="icon-item"><i class="ti ti-home"></i><span class="icon-name">home</span></div>
+  </div>
+</div>
+
+</body>
+</html>
