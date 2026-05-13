@@ -12,6 +12,7 @@
     "restore-images": "node scripts/restore-images.mjs"
   },
   "dependencies": {
+    "@vercel/analytics": "^2.0.1",
     "next": "^14.2.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
