@@ -1,6 +1,3 @@
 {
-  "buildCommand": null,
-  "outputDirectory": "out",
-  "framework": null,
-  "trailingSlash": true
+  "framework": "nextjs"
 }
