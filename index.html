@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pouf Furniture — Premium Turkish Furniture Manufacturer & Exporter</title>
+<meta name="description" content="Pouf is a premium Turkish furniture manufacturer and global exporter specialising in luxury and contemporary furniture collections. Request a catalogue or trade quote.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;500;600;700;800;900&family=Jost:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        forest: '#1C3A2E', 'forest-deep': '#0D2118', orange: '#FF914D', cream: '#F5F0E8',
+        'pouf-blue': '#0046AD', 'pouf-yellow': '#FFDE59', 'pouf-purple': '#8C52FF',
+      },
+      fontFamily: { spartan: ['"League Spartan"', 'sans-serif'], jost: ['Jost', 'sans-serif'] }
+    }
+  }
+}
+</script>
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Jost', sans-serif; background: #1C3A2E; color: #FEFEFE; overflow-x: hidden; }
+  html { scroll-behavior: smooth; }
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: #0D2118; }
+  ::-webkit-scrollbar-thumb { background: #FF914D; }
+
+  .grain-overlay {
+    position: fixed; inset: 0; z-index: 1000; pointer-events: none; opacity: 0.15; mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+  }
+
+  /* NAV */
+  #main-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; transition: background 0.35s, box-shadow 0.35s, backdrop-filter 0.35s; }
+  #main-nav.scrolled { background: rgba(13,33,24,0.96); backdrop-filter: blur(16px); box-shadow: 0 2px 32px rgba(0,0,0,0.35); }
+  .nav-link { font-family: 'League Spartan', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(254,254,254,0.7); cursor: pointer; padding: 4px 0; position: relative; border: none; background: none; text-decoration: none; transition: color 0.2s; }
+  .nav-link::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 1.5px; background: #FF914D; transition: width 0.25s cubic-bezier(0.16,1,0.3,1); }
+  .nav-link:hover { color: #FEFEFE; }
+  .nav-link:hover::after { width: 100%; }
+  .nav-icon-btn { width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center; background: transparent; border: none; color: rgba(254,254,254,0.8); font-size: 19px; cursor: pointer; border-radius: 4px; transition: color 0.15s, background 0.15s; }
+  .nav-icon-btn:hover { color: #FF914D; background: rgba(255,145,77,0.08); }
+
+  /* TYPOGRAPHY */
+  .display-xl { font-family: 'League Spartan', sans-serif; font-weight: 900; letter-spacing: -0.045em; line-height: 0.87; font-size: clamp(52px, 9.5vw, 128px); }
+  .sec-heading { font-family: 'League Spartan', sans-serif; font-weight: 800; letter-spacing: -0.035em; line-height: 0.92; }
+  .eyebrow { font-family: 'League Spartan', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; }
+
+  /* BUTTONS */
+  .btn { font-family: 'League Spartan', sans-serif; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; border: none; display: inline-flex; align-items: center; gap: 8px; text-decoration: none; transition: background 0.15s, color 0.15s, border-color 0.15s, transform 0.15s; }
+  .btn:active { transform: scale(0.98); }
+  .btn-orange { background: #FF914D; color: #000; padding: 15px 34px; font-size: 13px; }
+  .btn-orange:hover { background: #E87A3A; }
+  .btn-orange-sm { background: #FF914D; color: #000; padding: 10px 22px; font-size: 11px; }
+  .btn-orange-sm:hover { background: #E87A3A; }
+  .btn-outline-white { background: transparent; color: #FEFEFE; border: 2px solid rgba(254,254,254,0.55); padding: 13px 32px; font-size: 13px; }
+  .btn-outline-white:hover { background: #FEFEFE; color: #000; border-color: #FEFEFE; }
+  .btn-outline-dark { background: transparent; color: #1C3A2E; border: 2px solid #1C3A2E; padding: 13px 32px; font-size: 13px; }
+  .btn-outline-dark:hover { background: #1C3A2E; color: #FEFEFE; }
+  .btn-dark { background: #1C3A2E; color: #FEFEFE; padding: 15px 34px; font-size: 13px; }
+  .btn-dark:hover { background: #0D2118; }
+  .btn-ghost { font-family: 'League Spartan', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; background: transparent; border: none; border-bottom: 2px solid #FF914D; color: #FEFEFE; padding-bottom: 3px; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; text-decoration: none; transition: color 0.15s; }
+  .btn-ghost:hover { color: #FF914D; }
+
+  /* MARQUEE */
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  .marquee-inner { display: flex; width: max-content; animation: marquee 30s linear infinite; }
+  .marquee-inner:hover { animation-play-state: paused; }
+
+  /* COLLECTION CARDS */
+  .coll-card { position: relative; overflow: hidden; cursor: pointer; display: block; }
+  .coll-card img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.75s cubic-bezier(0.16,1,0.3,1); }
+  .coll-card:hover img { transform: scale(1.07); }
+  .coll-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(8,20,14,0.92) 0%, rgba(8,20,14,0.35) 45%, transparent 75%); transition: opacity 0.35s; }
+  .coll-card:hover .coll-overlay { opacity: 0.85; }
+  .coll-arrow { opacity: 0; transform: translateX(-10px); transition: opacity 0.3s, transform 0.4s cubic-bezier(0.16,1,0.3,1); }
+  .coll-card:hover .coll-arrow { opacity: 1; transform: translateX(0); }
+
+  /* MODEL CARDS */
+  .model-card { background: #152C22; cursor: pointer; transition: transform 0.35s cubic-bezier(0.16,1,0.3,1), box-shadow 0.35s; }
+  .model-card:hover { transform: translateY(-6px); box-shadow: 0 24px 48px rgba(0,0,0,0.45); }
+  .model-img-wrap { position: relative; overflow: hidden; }
+  .model-img-wrap img { width: 100%; display: block; aspect-ratio: 4/3; object-fit: cover; transition: transform 0.65s cubic-bezier(0.16,1,0.3,1); }
+  .model-card:hover .model-img-wrap img { transform: scale(1.05); }
+  .model-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,22,16,0.75) 0%, transparent 55%); opacity: 0; transition: opacity 0.3s; }
+  .model-card:hover .model-overlay { opacity: 1; }
+  .model-view-btn { position: absolute; bottom: 14px; left: 50%; transform: translateX(-50%) translateY(8px); opacity: 0; transition: opacity 0.3s, transform 0.35s cubic-bezier(0.16,1,0.3,1); white-space: nowrap; }
+  .model-card:hover .model-view-btn { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+  /* FEATURE */
+  .feature-row { border-top: 1px solid rgba(254,254,254,0.1); transition: border-color 0.3s; }
+  .feature-row:hover { border-color: rgba(255,145,77,0.35); }
+
+  /* TESTIMONIAL */
+  .testi-card { border: 1px solid rgba(254,254,254,0.09); background: rgba(254,254,254,0.03); transition: border-color 0.3s, background 0.3s, transform 0.35s cubic-bezier(0.16,1,0.3,1); }
+  .testi-card:hover { border-color: rgba(255,145,77,0.25); background: rgba(255,145,77,0.04); transform: translateY(-6px); }
+
+  /* STAT */
+  .stat-num { font-family: 'League Spartan', sans-serif; font-weight: 900; letter-spacing: -0.05em; color: #FF914D; font-size: clamp(40px, 5vw, 72px); }
+
+  /* FORM */
+  .form-input { background: rgba(0,0,0,0.25); border: 1px solid rgba(254,254,254,0.2); color: #FEFEFE; font-family: 'Jost', sans-serif; font-size: 15px; padding: 14px 18px; width: 100%; outline: none; transition: border-color 0.2s, background 0.2s; }
+  .form-input::placeholder { color: rgba(254,254,254,0.35); }
+  .form-input:focus { border-color: #FF914D; background: rgba(0,0,0,0.35); }
+  .form-select { background: rgba(0,0,0,0.25); border: 1px solid rgba(254,254,254,0.2); color: rgba(254,254,254,0.8); font-family: 'Jost', sans-serif; font-size: 15px; padding: 14px 18px; width: 100%; outline: none; transition: border-color 0.2s; appearance: none; cursor: pointer; }
+  .form-select:focus { border-color: #FF914D; }
+  .form-select option { background: #1C3A2E; color: #FEFEFE; }
+
+  /* CHIPS */
+  .chip-orange { display: inline-flex; align-items: center; gap: 6px; background: rgba(255,145,77,0.12); border: 1px solid rgba(255,145,77,0.3); color: #FF914D; font-family: 'League Spartan', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; padding: 6px 14px; border-radius: 100px; }
+
+  /* REVEAL */
+  .reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.75s cubic-bezier(0.16,1,0.3,1), transform 0.75s cubic-bezier(0.16,1,0.3,1); }
+  .reveal.in-view { opacity: 1; transform: translateY(0); }
+  .reveal-d1 { transition-delay: 0.08s; } .reveal-d2 { transition-delay: 0.16s; } .reveal-d3 { transition-delay: 0.24s; } .reveal-d4 { transition-delay: 0.32s; }
+
+  /* FLOAT */
+  @keyframes floatY { 0%,100% { transform: translateY(0px); } 50% { transform: translateY(-14px); } }
+  .float-anim { animation: floatY 5.5s ease-in-out infinite; }
+
+  @keyframes pulseGlow { 0%,100% { opacity:0.12; } 50% { opacity:0.25; } }
+  .pulse-glow { animation: pulseGlow 4s ease-in-out infinite; }
+
+  @keyframes scrollBounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(9px); } }
+  .scroll-bounce { animation: scrollBounce 2.2s ease-in-out infinite; }
+
+  .orb { position: absolute; border-radius: 50%; pointer-events: none; filter: blur(80px); }
+
+  /* FOOTER LINKS */
+  .footer-link { font-family: 'Jost', sans-serif; font-size: 14px; color: rgba(254,254,254,0.5); text-decoration: none; transition: color 0.15s; }
+  .footer-link:hover { color: #FEFEFE; }
+
+  .social-btn { width: 38px; height: 38px; background: rgba(254,254,254,0.06); border: 1px solid rgba(254,254,254,0.12); color: rgba(254,254,254,0.6); font-size: 17px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.15s; border-radius: 4px; }
+  .social-btn:hover { background: rgba(255,145,77,0.15); color: #FF914D; border-color: rgba(255,145,77,0.3); }
+</style>
+</head>
+<body>
+
+<div class="grain-overlay" aria-hidden="true"></div>
+
+<!-- ══════════════════════════════════════════
+  NAVIGATION
+══════════════════════════════════════════ -->
+<nav id="main-nav" class="w-full px-6 lg:px-12 py-5">
+  <div class="max-w-screen-xl mx-auto flex items-center justify-between">
+    <a href="index.html" class="flex-shrink-0">
+      <img src="brand_assets/main_logo.png" alt="Pouf Furniture" style="height:34px;width:auto;filter:invert(1);mix-blend-mode:screen;">
+    </a>
+    <div class="hidden lg:flex items-center gap-8">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="collection.html" class="nav-link">Collections</a>
+      <a href="#about" class="nav-link">About</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </div>
+    <div class="flex items-center gap-2">
+      <button class="nav-icon-btn" aria-label="Search"><i class="ti ti-search"></i></button>
+      <button class="nav-icon-btn lg:hidden" aria-label="Menu"><i class="ti ti-menu-2"></i></button>
+      <div class="hidden lg:block ml-2">
+        <a href="#contact" class="btn btn-orange-sm">Request a Quote <i class="ti ti-arrow-right" style="font-size:12px;"></i></a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+<!-- ══════════════════════════════════════════
+  HERO
+══════════════════════════════════════════ -->
+<section style="min-height:100vh;background:#1C3A2E;position:relative;overflow:hidden;display:flex;align-items:center;padding-top:100px;padding-bottom:60px;">
+  <div class="orb pulse-glow" style="width:700px;height:700px;background:radial-gradient(circle,rgba(255,145,77,0.1) 0%,transparent 70%);top:-200px;right:-100px;"></div>
+  <div class="orb pulse-glow" style="width:400px;height:400px;background:radial-gradient(circle,rgba(0,70,173,0.06) 0%,transparent 70%);top:30%;left:35%;animation-delay:2s;"></div>
+
+  <div style="position:absolute;right:20px;top:50%;transform:translateY(-50%) rotate(90deg);font-family:'League Spartan',sans-serif;font-size:9px;font-weight:700;letter-spacing:0.28em;text-transform:uppercase;color:rgba(254,254,254,0.15);white-space:nowrap;" class="hidden lg:block">
+    Turkish Manufacturer &amp; Exporter &nbsp;·&nbsp; Est. 2010
+  </div>
+
+  <div class="max-w-screen-xl mx-auto px-6 lg:px-12 w-full">
+    <div class="grid lg:grid-cols-2 gap-16 lg:gap-8 items-center">
+
+      <div>
+        <div class="chip-orange mb-8">
+          <i class="ti ti-world" style="font-size:10px;"></i>
+          Global Furniture Exporter
+        </div>
+        <h1 class="display-xl mb-8" style="color:#FEFEFE;">
+          Crafted in<br>Turkey,<br>Sold to the<br><em style="color:#FF914D;font-style:italic;">World.</em>
+        </h1>
+        <p style="font-family:'Jost',sans-serif;font-size:17px;line-height:1.7;color:rgba(254,254,254,0.6);max-width:440px;margin-bottom:40px;">
+          Pouf is a premium Turkish furniture manufacturer and B2B exporter based in İnegöl. Built on 25 years of family expertise, we supply wholesalers, retailers, and trade partners worldwide with luxury and contemporary furniture collections.
+        </p>
+        <div class="flex flex-wrap gap-4 mb-14">
+          <a href="collection.html" class="btn btn-orange" style="font-size:13px;padding:16px 38px;">
+            View Catalogue <i class="ti ti-arrow-right"></i>
+          </a>
+          <a href="#contact" class="btn btn-outline-white" style="font-size:13px;padding:14px 36px;">
+            Request a Quote
+          </a>
+        </div>
+        <div class="flex items-center gap-8" style="border-top:1px solid rgba(254,254,254,0.1);padding-top:28px;">
+          <div>
+            <div style="font-family:'League Spartan',sans-serif;font-size:34px;font-weight:900;letter-spacing:-0.04em;color:#FF914D;line-height:1;">10+</div>
+            <div class="eyebrow" style="color:rgba(254,254,254,0.4);margin-top:4px;">İnegöl Partners</div>
+          </div>
+          <div style="width:1px;height:40px;background:rgba(254,254,254,0.12);"></div>
+          <div>
+            <div style="font-family:'League Spartan',sans-serif;font-size:34px;font-weight:900;letter-spacing:-0.04em;color:#FF914D;line-height:1;">25+</div>
+            <div class="eyebrow" style="color:rgba(254,254,254,0.4);margin-top:4px;">Years Legacy</div>
+          </div>
+          <div style="width:1px;height:40px;background:rgba(254,254,254,0.12);"></div>
+          <div>
+            <div style="font-family:'League Spartan',sans-serif;font-size:34px;font-weight:900;letter-spacing:-0.04em;color:#FF914D;line-height:1;">100%</div>
+            <div class="eyebrow" style="color:rgba(254,254,254,0.4);margin-top:4px;">Turkish Made</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="position:relative;">
+        <div class="float-anim">
+          <div style="position:relative;display:inline-block;">
+            <img src="images/luxury/bentley/pouf-luxury-bentley-01.jpg" alt="Pouf Bentley Luxury Sofa Collection" style="width:100%;max-width:560px;display:block;box-shadow:0 60px 120px rgba(0,0,0,0.5),0 20px 40px rgba(0,0,0,0.3);">
+            <!-- Floating label -->
+            <div style="position:absolute;bottom:32px;left:-24px;background:#FEFEFE;padding:16px 20px;box-shadow:0 24px 48px rgba(0,0,0,0.4);min-width:190px;">
+              <div class="eyebrow" style="color:rgba(0,0,0,0.4);margin-bottom:5px;">Luxury Collection</div>
+              <div style="font-family:'League Spartan',sans-serif;font-size:16px;font-weight:700;color:#000;">Bentley Sofa Suite</div>
+              <div style="font-family:'League Spartan',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.08em;color:#FF914D;margin-top:4px;text-transform:uppercase;">Available for Export</div>
+            </div>
+            <!-- Badge -->
+            <div style="position:absolute;top:20px;right:-12px;background:#FF914D;color:#000;padding:10px 14px;display:flex;align-items:center;gap:5px;box-shadow:0 8px 24px rgba(255,145,77,0.4);">
+              <i class="ti ti-world" style="font-size:14px;"></i>
+              <span style="font-family:'League Spartan',sans-serif;font-size:13px;font-weight:800;letter-spacing:0.04em;">İnegöl Made</span>
+            </div>
+          </div>
+        </div>
+        <div class="scroll-bounce hidden lg:flex" style="position:absolute;bottom:-50px;left:50%;transform:translateX(-50%);flex-direction:column;align-items:center;gap:6px;">
+          <div class="eyebrow" style="color:rgba(254,254,254,0.22);">Scroll</div>
+          <i class="ti ti-chevrons-down" style="color:#FF914D;font-size:16px;"></i>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+  MARQUEE STRIP
+══════════════════════════════════════════ -->
+<div style="background:#FF914D;padding:15px 0;overflow:hidden;">
+  <div class="marquee-inner" aria-hidden="true">
+    <div style="display:flex;align-items:center;white-space:nowrap;">
+      <span style="font-family:'League Spartan',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#000;padding:0 32px;">Premium Turkish Manufacturer</span><span style="color:#000;font-size:18px;opacity:0.4;">·</span>
+      <span style="font-family:'League Spartan',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#000;padding:0 32px;">Rooted in İnegöl, Turkey</span><span style="color:#000;font-size:18px;opacity:0.4;">·</span>
+      <span style="font-family:'League Spartan',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#000;padding:0 32px;">B2B Wholesale &amp; Trade</span><span style="color:#000;font-size:18px;opacity:0.4;">·</span>
+      <span style="font-family:'League Spartan',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#000;padding:0 32px;">OEM &amp; Custom Orders Accepted</span><span style="color:#000;font-size:18px;opacity:0.4;">·</span>
+      <span style="font-family:'League Spartan',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#000;padding:0 32px;">5-Year Quality Guarantee</span><span style="color:#000;font-size:18px;opacity:0.4;">·</span>
+      <span style="font-family:'League Spartan',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#000;padding:0 32px;">MOQ-Friendly Export Terms</span><span style="color:#000;font-size:18px;opacity:0.4;">·</span>
+      <span style="font-family:'League Spartan',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#000;padding:0 32px;">Premium Turkish Manufacturer</span><span style="color:#000;font-size:18px;opacity:0.4;">·</span>
+      <span style="font-family:'League Spartan',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#000;padding:0 32px;">Rooted in İnegöl, Turkey</span><span style="color:#000;font-size:18px;opacity:0.4;">·</span>
+      <span style="font-family:'League Spartan',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#000;padding:0 32px;">B2B Wholesale &amp; Trade</span><span style="color:#000;font-size:18px;opacity:0.4;">·</span>
+      <span style="font-family:'League Spartan',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#000;padding:0 32px;">OEM &amp; Custom Orders Accepted</span><span style="color:#000;font-size:18px;opacity:0.4;">·</span>
+      <span style="font-family:'League Spartan',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#000;padding:0 32px;">5-Year Quality Guarantee</span><span style="color:#000;font-size:18px;opacity:0.4;">·</span>
+      <span style="font-family:'League Spartan',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#000;padding:0 32px;">MOQ-Friendly Export Terms</span><span style="color:#000;font-size:18px;opacity:0.4;">·</span>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+  COLLECTIONS PREVIEW
+══════════════════════════════════════════ -->
+<section style="background:#1C3A2E;padding:100px 0 80px;">
+  <div class="max-w-screen-xl mx-auto px-6 lg:px-12">
+    <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-14">
+      <div>
+        <div class="eyebrow reveal" style="color:#FF914D;margin-bottom:14px;">Our product lines</div>
+        <h2 class="sec-heading reveal reveal-d1" style="font-size:clamp(40px,6vw,72px);color:#FEFEFE;">Two Distinct<br>Collections</h2>
+      </div>
+      <a href="collection.html" class="btn-ghost reveal reveal-d2" style="align-self:flex-start;margin-bottom:8px;">
+        View Full Catalogue <i class="ti ti-arrow-right"></i>
+      </a>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <!-- Luxury -->
+      <a href="collection.html#luxury" class="coll-card reveal" style="height:520px;">
+        <img src="images/luxury/lagos/pouf-luxury-lagos-01.jpg" alt="Pouf Luxury Collection — Ornate Turkish furniture with gold accents">
+        <div class="coll-overlay"></div>
+        <div style="position:absolute;inset:0;padding:36px;display:flex;flex-direction:column;justify-content:flex-end;">
+          <div class="eyebrow" style="color:rgba(254,254,254,0.5);margin-bottom:10px;">12 Models</div>
+          <h3 style="font-family:'League Spartan',sans-serif;font-size:34px;font-weight:800;letter-spacing:-0.03em;color:#FEFEFE;margin-bottom:10px;line-height:1.05;">Luxury<br>Collection</h3>
+          <p style="font-family:'Jost',sans-serif;font-size:14px;color:rgba(254,254,254,0.6);margin-bottom:16px;max-width:340px;">Opulent baroque and art deco suites with hand-finished gold accents. Designed for premium showrooms and high-end residential projects.</p>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <span class="eyebrow" style="color:#FF914D;">Explore Collection</span>
+            <i class="ti ti-arrow-right coll-arrow" style="color:#FF914D;font-size:14px;"></i>
+          </div>
+        </div>
+      </a>
+
+      <!-- Modern -->
+      <a href="collection.html#modern" class="coll-card reveal reveal-d1" style="height:520px;">
+        <img src="images/modern/asya/pouf-modern-asya-01.jpg" alt="Pouf Modern Collection — Contemporary minimalist Turkish furniture">
+        <div class="coll-overlay"></div>
+        <div style="position:absolute;inset:0;padding:36px;display:flex;flex-direction:column;justify-content:flex-end;">
+          <div class="eyebrow" style="color:rgba(254,254,254,0.5);margin-bottom:10px;">10 Models</div>
+          <h3 style="font-family:'League Spartan',sans-serif;font-size:34px;font-weight:800;letter-spacing:-0.03em;color:#FEFEFE;margin-bottom:10px;line-height:1.05;">Modern &amp;<br>Contemporary</h3>
+          <p style="font-family:'Jost',sans-serif;font-size:14px;color:rgba(254,254,254,0.6);margin-bottom:16px;max-width:340px;">Clean lines, premium bouclé and leather upholstery, natural oak bases. Suited for contemporary retail, hospitality, and contract interiors.</p>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <span class="eyebrow" style="color:#FF914D;">Explore Collection</span>
+            <i class="ti ti-arrow-right coll-arrow" style="color:#FF914D;font-size:14px;"></i>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+  FEATURED MODELS (B2B — no prices)
+══════════════════════════════════════════ -->
+<section style="background:#F5F0E8;padding:100px 0;">
+  <div class="max-w-screen-xl mx-auto px-6 lg:px-12">
+    <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-14">
+      <div>
+        <div class="eyebrow reveal" style="color:#FF914D;margin-bottom:14px;">Handpicked for trade buyers</div>
+        <h2 class="sec-heading reveal reveal-d1" style="font-size:clamp(40px,6vw,72px);color:#1C3A2E;">Featured Models</h2>
+      </div>
+      <a href="collection.html" class="btn reveal reveal-d2 btn-dark" style="align-self:flex-start;">
+        View All Models <i class="ti ti-arrow-right"></i>
+      </a>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+      <!-- Model: Bentley -->
+      <div class="model-card reveal">
+        <div class="model-img-wrap">
+          <img src="images/luxury/bentley/pouf-luxury-bentley-01.jpg" alt="Pouf Luxury Bentley Sofa Suite">
+          <div class="model-overlay"></div>
+          <a href="collection.html#luxury" class="model-view-btn btn btn-orange-sm" style="pointer-events:none;">View in Catalogue</a>
+        </div>
+        <div style="padding:18px 18px 22px;">
+          <div class="eyebrow" style="color:#FF914D;margin-bottom:6px;">Luxury · Sofa Suite</div>
+          <div style="font-family:'League Spartan',sans-serif;font-size:19px;font-weight:800;letter-spacing:-0.02em;color:#FEFEFE;margin-bottom:10px;">Bentley</div>
+          <a href="#contact" class="btn" style="font-size:10px;padding:8px 16px;background:rgba(255,145,77,0.1);color:#FF914D;border:1px solid rgba(255,145,77,0.25);letter-spacing:0.1em;">Request Quote <i class="ti ti-arrow-right" style="font-size:11px;"></i></a>
+        </div>
+      </div>
+
+      <!-- Model: Angel Pro -->
+      <div class="model-card reveal reveal-d1">
+        <div class="model-img-wrap">
+          <img src="images/luxury/angel-pro/pouf-luxury-angel-pro-01.jpg" alt="Pouf Luxury Angel Pro Sofa Suite">
+          <div class="model-overlay"></div>
+          <a href="collection.html#luxury" class="model-view-btn btn btn-orange-sm" style="pointer-events:none;">View in Catalogue</a>
+        </div>
+        <div style="padding:18px 18px 22px;">
+          <div class="eyebrow" style="color:#FF914D;margin-bottom:6px;">Luxury · Sofa Suite</div>
+          <div style="font-family:'League Spartan',sans-serif;font-size:19px;font-weight:800;letter-spacing:-0.02em;color:#FEFEFE;margin-bottom:10px;">Angel Pro</div>
+          <a href="#contact" class="btn" style="font-size:10px;padding:8px 16px;background:rgba(255,145,77,0.1);color:#FF914D;border:1px solid rgba(255,145,77,0.25);letter-spacing:0.1em;">Request Quote <i class="ti ti-arrow-right" style="font-size:11px;"></i></a>
+        </div>
+      </div>
+
+      <!-- Model: Asya -->
+      <div class="model-card reveal reveal-d2">
+        <div class="model-img-wrap">
+          <img src="images/modern/asya/pouf-modern-asya-01.jpg" alt="Pouf Modern Asya Sofa">
+          <div class="model-overlay"></div>
+          <a href="collection.html#modern" class="model-view-btn btn btn-orange-sm" style="pointer-events:none;">View in Catalogue</a>
+        </div>
+        <div style="padding:18px 18px 22px;">
+          <div class="eyebrow" style="color:#FF914D;margin-bottom:6px;">Modern · Sofa</div>
+          <div style="font-family:'League Spartan',sans-serif;font-size:19px;font-weight:800;letter-spacing:-0.02em;color:#FEFEFE;margin-bottom:10px;">Asya</div>
+          <a href="#contact" class="btn" style="font-size:10px;padding:8px 16px;background:rgba(255,145,77,0.1);color:#FF914D;border:1px solid rgba(255,145,77,0.25);letter-spacing:0.1em;">Request Quote <i class="ti ti-arrow-right" style="font-size:11px;"></i></a>
+        </div>
+      </div>
+
+      <!-- Model: Maveron -->
+      <div class="model-card reveal reveal-d3">
+        <div class="model-img-wrap">
+          <img src="images/modern/maveron/pouf-modern-maveron-01.jpg" alt="Pouf Modern Maveron Sofa">
+          <div class="model-overlay"></div>
+          <a href="collection.html#modern" class="model-view-btn btn btn-orange-sm" style="pointer-events:none;">View in Catalogue</a>
+        </div>
+        <div style="padding:18px 18px 22px;">
+          <div class="eyebrow" style="color:#FF914D;margin-bottom:6px;">Modern · Sofa</div>
+          <div style="font-family:'League Spartan',sans-serif;font-size:19px;font-weight:800;letter-spacing:-0.02em;color:#FEFEFE;margin-bottom:10px;">Maveron</div>
+          <a href="#contact" class="btn" style="font-size:10px;padding:8px 16px;background:rgba(255,145,77,0.1);color:#FF914D;border:1px solid rgba(255,145,77,0.25);letter-spacing:0.1em;">Request Quote <i class="ti ti-arrow-right" style="font-size:11px;"></i></a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+  STATS
+══════════════════════════════════════════ -->
+<section style="background:#0D2118;padding:80px 0;border-top:1px solid rgba(255,145,77,0.15);border-bottom:1px solid rgba(255,145,77,0.15);">
+  <div class="max-w-screen-xl mx-auto px-6 lg:px-12">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+      <div class="reveal text-center lg:text-left" style="padding:0 24px;border-right:1px solid rgba(254,254,254,0.08);">
+        <div class="stat-num">10+</div>
+        <div style="font-family:'Jost',sans-serif;font-size:15px;color:rgba(254,254,254,0.5);margin-top:6px;line-height:1.5;">Manufacturing partners<br>across İnegöl</div>
+      </div>
+      <div class="reveal reveal-d1 text-center lg:text-left" style="padding:0 24px;border-right:1px solid rgba(254,254,254,0.08);">
+        <div class="stat-num">25+</div>
+        <div style="font-family:'Jost',sans-serif;font-size:15px;color:rgba(254,254,254,0.5);margin-top:6px;line-height:1.5;">Years of family expertise<br>in furniture craftsmanship</div>
+      </div>
+      <div class="reveal reveal-d2 text-center lg:text-left" style="padding:0 24px;border-right:1px solid rgba(254,254,254,0.08);">
+        <div class="stat-num">OEM</div>
+        <div style="font-family:'Jost',sans-serif;font-size:15px;color:rgba(254,254,254,0.5);margin-top:6px;line-height:1.5;">Custom design &amp; private<br>label production ready</div>
+      </div>
+      <div class="reveal reveal-d3 text-center lg:text-left" style="padding:0 24px;">
+        <div class="stat-num">500+</div>
+        <div style="font-family:'Jost',sans-serif;font-size:15px;color:rgba(254,254,254,0.5);margin-top:6px;line-height:1.5;">Trade partners and<br>wholesale clients worldwide</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+  ABOUT / BRAND STORY
+══════════════════════════════════════════ -->
+<section id="about" style="background:#F5F0E8;padding:100px 0;overflow:hidden;">
+  <div class="max-w-screen-xl mx-auto px-6 lg:px-12">
+    <div class="grid lg:grid-cols-2 gap-16 items-center">
+      <div class="reveal" style="position:relative;">
+        <img src="images/luxury/angel-pro-dining/pouf-luxury-angel-pro-dining-01.jpg" alt="Pouf luxury furniture manufacturing in Turkey" style="width:100%;display:block;box-shadow:0 32px 80px rgba(0,0,0,0.2);">
+        <div style="position:absolute;bottom:-30px;right:-20px;width:200px;box-shadow:0 20px 48px rgba(0,0,0,0.25);border:4px solid #F5F0E8;">
+          <img src="images/modern/alfeca/pouf-modern-alfeca-01.jpg" alt="Pouf modern collection detail" style="width:100%;display:block;">
+        </div>
+        <div style="position:absolute;top:30px;right:-10px;background:#1C3A2E;color:#FEFEFE;padding:18px 22px;box-shadow:0 16px 40px rgba(0,0,0,0.25);">
+          <div class="eyebrow" style="color:rgba(254,254,254,0.45);margin-bottom:6px;">Family Legacy Since</div>
+          <div style="font-family:'League Spartan',sans-serif;font-size:32px;font-weight:900;letter-spacing:-0.04em;color:#FF914D;">2000</div>
+        </div>
+      </div>
+      <div style="padding-bottom:30px;">
+        <div class="eyebrow reveal" style="color:#FF914D;margin-bottom:16px;">Who we are</div>
+        <h2 class="sec-heading reveal reveal-d1" style="font-size:clamp(36px,5vw,60px);color:#1C3A2E;margin-bottom:28px;">A Trusted<br>Manufacturing<br>Partner</h2>
+        <p class="reveal reveal-d2" style="font-family:'Jost',sans-serif;font-size:17px;line-height:1.75;color:rgba(28,58,46,0.7);margin-bottom:20px;">
+          Pouf is a new brand rooted in İnegöl, Turkey — the heartland of premium furniture manufacturing. Built on 25 years of family expertise in the industry, we are the new generation driving a shift toward innovation while honouring the craftsmanship and quality standards our family has upheld for decades.
+        </p>
+        <p class="reveal reveal-d3" style="font-family:'Jost',sans-serif;font-size:17px;line-height:1.75;color:rgba(28,58,46,0.7);margin-bottom:20px;">
+          Collaborating with over 10 trusted manufacturers in İnegöl and operating our own production line, we blend tradition with modern design to deliver durable, stylish, and functional furniture — with no middlemen, competitive wholesale pricing, and uncompromising quality control at every stage.
+        </p>
+        <p class="reveal reveal-d4" style="font-family:'Jost',sans-serif;font-size:17px;line-height:1.75;color:rgba(28,58,46,0.7);margin-bottom:40px;">
+          From MOQ-friendly first orders to full container export programmes, we support importers, distributors, and large-scale retailers with flexible trade terms, OEM capability, and dedicated account management. Let's build the future of furniture together.
+        </p>
+        <div class="flex flex-wrap gap-4 reveal">
+          <a href="collection.html" class="btn btn-dark" style="padding:15px 34px;">View Catalogue <i class="ti ti-arrow-right"></i></a>
+          <a href="#contact" class="btn btn-outline-dark" style="padding:13px 32px;">Contact Sales</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+  WHY POUF — B2B TRUST SIGNALS
+══════════════════════════════════════════ -->
+<section style="background:#1C3A2E;padding:100px 0;">
+  <div class="max-w-screen-xl mx-auto px-6 lg:px-12">
+    <div class="text-center mb-16">
+      <div class="eyebrow reveal" style="color:#FF914D;margin-bottom:14px;">Why trade partners choose us</div>
+      <h2 class="sec-heading reveal reveal-d1" style="font-size:clamp(36px,5vw,64px);color:#FEFEFE;">Built for<br>Global Trade</h2>
+    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-0">
+      <div class="feature-row reveal" style="padding:40px 36px 40px 0;border-right:1px solid rgba(254,254,254,0.08);">
+        <div style="width:52px;height:52px;background:rgba(255,145,77,0.12);border:1px solid rgba(255,145,77,0.2);display:flex;align-items:center;justify-content:center;margin-bottom:20px;">
+          <i class="ti ti-truck" style="font-size:22px;color:#FF914D;"></i>
+        </div>
+        <h4 style="font-family:'League Spartan',sans-serif;font-size:20px;font-weight:800;letter-spacing:-0.02em;color:#FEFEFE;margin-bottom:10px;">Global Logistics</h4>
+        <p style="font-family:'Jost',sans-serif;font-size:14px;line-height:1.7;color:rgba(254,254,254,0.5);">Full container and LCL export experience to Europe, the Middle East, North Africa, and beyond. FOB, CIF, and DDP terms available.</p>
+      </div>
+      <div class="feature-row reveal reveal-d1" style="padding:40px 36px;border-right:1px solid rgba(254,254,254,0.08);">
+        <div style="width:52px;height:52px;background:rgba(255,145,77,0.12);border:1px solid rgba(255,145,77,0.2);display:flex;align-items:center;justify-content:center;margin-bottom:20px;">
+          <i class="ti ti-shield-check" style="font-size:22px;color:#FF914D;"></i>
+        </div>
+        <h4 style="font-family:'League Spartan',sans-serif;font-size:20px;font-weight:800;letter-spacing:-0.02em;color:#FEFEFE;margin-bottom:10px;">5-Year Guarantee</h4>
+        <p style="font-family:'Jost',sans-serif;font-size:14px;line-height:1.7;color:rgba(254,254,254,0.5);">Every piece carries a comprehensive 5-year structural warranty. We stand behind our manufacturing quality with full after-sales support.</p>
+      </div>
+      <div class="feature-row reveal reveal-d2" style="padding:40px 36px;border-right:1px solid rgba(254,254,254,0.08);">
+        <div style="width:52px;height:52px;background:rgba(255,145,77,0.12);border:1px solid rgba(255,145,77,0.2);display:flex;align-items:center;justify-content:center;margin-bottom:20px;">
+          <i class="ti ti-adjustments-horizontal" style="font-size:22px;color:#FF914D;"></i>
+        </div>
+        <h4 style="font-family:'League Spartan',sans-serif;font-size:20px;font-weight:800;letter-spacing:-0.02em;color:#FEFEFE;margin-bottom:10px;">OEM &amp; Custom</h4>
+        <p style="font-family:'Jost',sans-serif;font-size:14px;line-height:1.7;color:rgba(254,254,254,0.5);">Private label manufacturing, custom colourways, material substitutions, and bespoke model development available for qualifying partners.</p>
+      </div>
+      <div class="feature-row reveal reveal-d3" style="padding:40px 0 40px 36px;">
+        <div style="width:52px;height:52px;background:rgba(255,145,77,0.12);border:1px solid rgba(255,145,77,0.2);display:flex;align-items:center;justify-content:center;margin-bottom:20px;">
+          <i class="ti ti-rotate" style="font-size:22px;color:#FF914D;"></i>
+        </div>
+        <h4 style="font-family:'League Spartan',sans-serif;font-size:20px;font-weight:800;letter-spacing:-0.02em;color:#FEFEFE;margin-bottom:10px;">360° Showroom</h4>
+        <p style="font-family:'Jost',sans-serif;font-size:14px;line-height:1.7;color:rgba(254,254,254,0.5);">Tour our full product range virtually from anywhere in the world, or visit our İnegöl showroom by appointment for an in-person review.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+  PARTNER TESTIMONIALS
+══════════════════════════════════════════ -->
+<section style="background:#0D2118;padding:100px 0;position:relative;overflow:hidden;">
+  <div class="orb pulse-glow" style="width:600px;height:600px;background:radial-gradient(circle,rgba(255,145,77,0.06) 0%,transparent 70%);top:-200px;right:-200px;"></div>
+  <div class="max-w-screen-xl mx-auto px-6 lg:px-12">
+    <div class="text-center mb-16">
+      <div class="eyebrow reveal" style="color:#FF914D;margin-bottom:14px;">Trade partner feedback</div>
+      <h2 class="sec-heading reveal reveal-d1" style="font-size:clamp(36px,5vw,64px);color:#FEFEFE;">Trusted by<br>Importers Worldwide</h2>
+    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div class="testi-card reveal" style="padding:36px;">
+        <div style="margin-bottom:20px;display:flex;gap:2px;">
+          <i class="ti ti-star-filled" style="color:#FF914D;font-size:13px;"></i><i class="ti ti-star-filled" style="color:#FF914D;font-size:13px;"></i><i class="ti ti-star-filled" style="color:#FF914D;font-size:13px;"></i><i class="ti ti-star-filled" style="color:#FF914D;font-size:13px;"></i><i class="ti ti-star-filled" style="color:#FF914D;font-size:13px;"></i>
+        </div>
+        <p style="font-family:'Jost',sans-serif;font-size:16px;line-height:1.75;color:rgba(254,254,254,0.75);margin-bottom:28px;font-style:italic;">
+          "Pouf has been our exclusive Turkish supplier for three years. Production quality is consistent, lead times are reliable, and our margins are strong. An excellent manufacturing partner."
+        </p>
+        <div style="display:flex;align-items:center;gap:14px;border-top:1px solid rgba(254,254,254,0.08);padding-top:20px;">
+          <div style="width:42px;height:42px;background:#2A4A3A;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <span style="font-family:'League Spartan',sans-serif;font-size:15px;font-weight:800;color:#FF914D;">J</span>
+          </div>
+          <div>
+            <div style="font-family:'League Spartan',sans-serif;font-size:15px;font-weight:700;color:#FEFEFE;">James H.</div>
+            <div class="eyebrow" style="color:rgba(254,254,254,0.35);margin-top:2px;">Director, furniture importer — UK</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal reveal-d1" style="padding:36px;border-color:rgba(255,145,77,0.2);background:rgba(255,145,77,0.04);">
+        <div style="margin-bottom:20px;display:flex;gap:2px;">
+          <i class="ti ti-star-filled" style="color:#FF914D;font-size:13px;"></i><i class="ti ti-star-filled" style="color:#FF914D;font-size:13px;"></i><i class="ti ti-star-filled" style="color:#FF914D;font-size:13px;"></i><i class="ti ti-star-filled" style="color:#FF914D;font-size:13px;"></i><i class="ti ti-star-filled" style="color:#FF914D;font-size:13px;"></i>
+        </div>
+        <p style="font-family:'Jost',sans-serif;font-size:16px;line-height:1.75;color:rgba(254,254,254,0.75);margin-bottom:28px;font-style:italic;">
+          "The Lagos and Bentley collections sell through our showrooms faster than anything else we stock. Pouf's quality-to-cost ratio is unmatched among our Turkish suppliers."
+        </p>
+        <div style="display:flex;align-items:center;gap:14px;border-top:1px solid rgba(254,254,254,0.08);padding-top:20px;">
+          <div style="width:42px;height:42px;background:#2A4A3A;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <span style="font-family:'League Spartan',sans-serif;font-size:15px;font-weight:800;color:#FF914D;">K</span>
+          </div>
+          <div>
+            <div style="font-family:'League Spartan',sans-serif;font-size:15px;font-weight:700;color:#FEFEFE;">Khalid R.</div>
+            <div class="eyebrow" style="color:rgba(254,254,254,0.35);margin-top:2px;">CEO, wholesale distributor — UAE</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal reveal-d2" style="padding:36px;">
+        <div style="margin-bottom:20px;display:flex;gap:2px;">
+          <i class="ti ti-star-filled" style="color:#FF914D;font-size:13px;"></i><i class="ti ti-star-filled" style="color:#FF914D;font-size:13px;"></i><i class="ti ti-star-filled" style="color:#FF914D;font-size:13px;"></i><i class="ti ti-star-filled" style="color:#FF914D;font-size:13px;"></i><i class="ti ti-star-filled" style="color:#FF914D;font-size:13px;"></i>
+        </div>
+        <p style="font-family:'Jost',sans-serif;font-size:16px;line-height:1.75;color:rgba(254,254,254,0.75);margin-bottom:28px;font-style:italic;">
+          "We placed our first trial order of 40 pieces and the quality exceeded expectations. We have since committed to three full containers annually. A trustworthy long-term partner."
+        </p>
+        <div style="display:flex;align-items:center;gap:14px;border-top:1px solid rgba(254,254,254,0.08);padding-top:20px;">
+          <div style="width:42px;height:42px;background:#2A4A3A;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <span style="font-family:'League Spartan',sans-serif;font-size:15px;font-weight:800;color:#FF914D;">M</span>
+          </div>
+          <div>
+            <div style="font-family:'League Spartan',sans-serif;font-size:15px;font-weight:700;color:#FEFEFE;">Marco F.</div>
+            <div class="eyebrow" style="color:rgba(254,254,254,0.35);margin-top:2px;">Procurement director — Italy</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+  CONTACT / QUOTE REQUEST
+══════════════════════════════════════════ -->
+<section id="contact" style="background:#F5F0E8;padding:100px 0;position:relative;overflow:hidden;">
+  <div style="position:absolute;right:-40px;top:50%;transform:translateY(-50%);opacity:0.04;pointer-events:none;">
+    <img src="brand_assets/main_logo.png" alt="" style="height:400px;width:auto;" aria-hidden="true">
+  </div>
+  <div class="max-w-screen-xl mx-auto px-6 lg:px-12">
+    <div class="grid lg:grid-cols-2 gap-16 items-start">
+
+      <!-- Left: copy -->
+      <div>
+        <div class="eyebrow reveal" style="color:#FF914D;margin-bottom:16px;">Start a conversation</div>
+        <h2 class="sec-heading reveal reveal-d1" style="font-size:clamp(36px,5vw,64px);color:#1C3A2E;margin-bottom:24px;">Request a<br>Trade Quote</h2>
+        <p class="reveal reveal-d2" style="font-family:'Jost',sans-serif;font-size:17px;line-height:1.75;color:rgba(28,58,46,0.7);margin-bottom:36px;max-width:420px;">
+          Fill in the form and our export team will respond within one business day with pricing, lead times, and available trade terms for your market.
+        </p>
+        <div class="flex flex-col gap-5 reveal reveal-d3">
+          <div style="display:flex;align-items:flex-start;gap:14px;">
+            <div style="width:42px;height:42px;background:#1C3A2E;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <i class="ti ti-mail" style="font-size:18px;color:#FF914D;"></i>
+            </div>
+            <div>
+              <div style="font-family:'League Spartan',sans-serif;font-size:14px;font-weight:700;color:#1C3A2E;margin-bottom:2px;">Email</div>
+              <a href="mailto:akif@pouffurnitures.com" style="font-family:'Jost',sans-serif;font-size:15px;color:rgba(28,58,46,0.7);text-decoration:none;display:block;">akif@pouffurnitures.com</a>
+              <a href="mailto:ziada.uzer@pouffurnitures.com" style="font-family:'Jost',sans-serif;font-size:15px;color:rgba(28,58,46,0.7);text-decoration:none;display:block;">ziada.uzer@pouffurnitures.com</a>
+            </div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:14px;">
+            <div style="width:42px;height:42px;background:#1C3A2E;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <i class="ti ti-brand-whatsapp" style="font-size:18px;color:#FF914D;"></i>
+            </div>
+            <div>
+              <div style="font-family:'League Spartan',sans-serif;font-size:14px;font-weight:700;color:#1C3A2E;margin-bottom:2px;">WhatsApp</div>
+              <a href="https://wa.me/905432455503" target="_blank" rel="noopener" style="font-family:'Jost',sans-serif;font-size:15px;color:rgba(28,58,46,0.7);text-decoration:none;">+90 543 245 5503</a>
+            </div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:14px;">
+            <div style="width:42px;height:42px;background:#1C3A2E;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <i class="ti ti-map-pin" style="font-size:18px;color:#FF914D;"></i>
+            </div>
+            <div>
+              <div style="font-family:'League Spartan',sans-serif;font-size:14px;font-weight:700;color:#1C3A2E;margin-bottom:2px;">Showroom</div>
+              <div style="font-family:'Jost',sans-serif;font-size:15px;color:rgba(28,58,46,0.7);">İnegöl, Turkey — by appointment</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: form -->
+      <div class="reveal reveal-d1" style="background:#FEFEFE;padding:40px;box-shadow:0 32px 64px rgba(0,0,0,0.1);">
+        <form onsubmit="handleContactForm(event)">
+          <div class="grid grid-cols-2 gap-4 mb-4">
+            <div>
+              <label style="font-family:'League Spartan',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(28,58,46,0.6);display:block;margin-bottom:6px;">First Name</label>
+              <input type="text" placeholder="Jane" class="form-input" style="background:rgba(28,58,46,0.04);border:1px solid rgba(28,58,46,0.15);color:#1C3A2E;" required>
+            </div>
+            <div>
+              <label style="font-family:'League Spartan',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(28,58,46,0.6);display:block;margin-bottom:6px;">Last Name</label>
+              <input type="text" placeholder="Smith" class="form-input" style="background:rgba(28,58,46,0.04);border:1px solid rgba(28,58,46,0.15);color:#1C3A2E;" required>
+            </div>
+          </div>
+          <div class="mb-4">
+            <label style="font-family:'League Spartan',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(28,58,46,0.6);display:block;margin-bottom:6px;">Company &amp; Country</label>
+            <input type="text" placeholder="Acme Furniture, United Kingdom" class="form-input" style="background:rgba(28,58,46,0.04);border:1px solid rgba(28,58,46,0.15);color:#1C3A2E;" required>
+          </div>
+          <div class="mb-4">
+            <label style="font-family:'League Spartan',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(28,58,46,0.6);display:block;margin-bottom:6px;">Business Email</label>
+            <input type="email" placeholder="jane@company.com" class="form-input" style="background:rgba(28,58,46,0.04);border:1px solid rgba(28,58,46,0.15);color:#1C3A2E;" required>
+          </div>
+          <div class="mb-4">
+            <label style="font-family:'League Spartan',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(28,58,46,0.6);display:block;margin-bottom:6px;">Collection of Interest</label>
+            <select class="form-select" style="background:rgba(28,58,46,0.04);border:1px solid rgba(28,58,46,0.15);color:#1C3A2E;">
+              <option value="">Select a collection…</option>
+              <option>Luxury Collection (Ozkan line)</option>
+              <option>Modern &amp; Contemporary (Danisska line)</option>
+              <option>Both Collections</option>
+              <option>Custom / OEM enquiry</option>
+            </select>
+          </div>
+          <div class="mb-6">
+            <label style="font-family:'League Spartan',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(28,58,46,0.6);display:block;margin-bottom:6px;">Message</label>
+            <textarea rows="4" placeholder="Tell us about your requirements — models of interest, approximate quantities, destination market…" class="form-input" style="background:rgba(28,58,46,0.04);border:1px solid rgba(28,58,46,0.15);color:#1C3A2E;resize:vertical;"></textarea>
+          </div>
+          <button type="submit" class="btn btn-dark" style="width:100%;justify-content:center;padding:16px;">
+            Send Enquiry <i class="ti ti-arrow-right"></i>
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+  FOOTER
+══════════════════════════════════════════ -->
+<footer style="background:#0D2118;padding:80px 0 0;">
+  <div class="max-w-screen-xl mx-auto px-6 lg:px-12">
+    <div class="grid grid-cols-1 lg:grid-cols-5 gap-12 pb-16" style="border-bottom:1px solid rgba(254,254,254,0.08);">
+      <div class="lg:col-span-2">
+        <img src="brand_assets/main_logo.png" alt="Pouf Furniture" style="height:40px;width:auto;filter:invert(1);mix-blend-mode:screen;margin-bottom:20px;display:block;">
+        <p style="font-family:'Jost',sans-serif;font-size:15px;line-height:1.7;color:rgba(254,254,254,0.45);max-width:280px;margin-bottom:28px;">Premium Turkish furniture manufacturer and B2B exporter, rooted in İnegöl. Built on 25 years of family expertise.</p>
+        <div style="display:flex;gap:8px;">
+          <button class="social-btn" aria-label="Instagram"><i class="ti ti-brand-instagram"></i></button>
+          <button class="social-btn" aria-label="LinkedIn"><i class="ti ti-brand-linkedin"></i></button>
+          <button class="social-btn" aria-label="YouTube"><i class="ti ti-brand-youtube"></i></button>
+        </div>
+      </div>
+      <div>
+        <div class="eyebrow" style="color:#FF914D;margin-bottom:20px;">Collections</div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:12px;">
+          <li><a href="collection.html" class="footer-link">Full Catalogue</a></li>
+          <li><a href="collection.html#luxury" class="footer-link">Luxury Collection</a></li>
+          <li><a href="collection.html#modern" class="footer-link">Modern &amp; Contemporary</a></li>
+          <li><a href="#" class="footer-link">New Models</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="eyebrow" style="color:#FF914D;margin-bottom:20px;">Company</div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:12px;">
+          <li><a href="#about" class="footer-link">About Pouf</a></li>
+          <li><a href="#" class="footer-link">Manufacturing</a></li>
+          <li><a href="#" class="footer-link">Sustainability</a></li>
+          <li><a href="#" class="footer-link">Careers</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="eyebrow" style="color:#FF914D;margin-bottom:20px;">Trade</div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:12px;">
+          <li><a href="#contact" class="footer-link">Request a Quote</a></li>
+          <li><a href="#" class="footer-link">Export Terms</a></li>
+          <li><a href="#" class="footer-link">OEM &amp; Custom</a></li>
+          <li><a href="#" class="footer-link">Showroom Visit</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="flex flex-col lg:flex-row items-center justify-between gap-4 py-7">
+      <p style="font-family:'Jost',sans-serif;font-size:13px;color:rgba(254,254,254,0.3);">© 2025 Pouf Furniture. All rights reserved. Istanbul, Turkey.</p>
+      <div style="display:flex;gap:24px;">
+        <a href="#" class="footer-link" style="font-size:12px;">Privacy Policy</a>
+        <a href="#" class="footer-link" style="font-size:12px;">Terms of Trade</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Nav scroll
+  const nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60), { passive: true });
+
+  // Reveal
+  const obs = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in-view'); obs.unobserve(e.target); } }), { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+  // Contact form
+  function handleContactForm(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('button[type="submit"]');
+    btn.innerHTML = '<i class="ti ti-check"></i> Enquiry Sent — We\'ll be in touch within 24h';
+    btn.style.background = '#1C3A2E';
+    btn.disabled = true;
+  }
+</script>
+</body>
+</html>
