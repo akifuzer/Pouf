@@ -12,6 +12,14 @@ export default class MyDocument extends Document {
     return (
       <Html lang={isTr ? 'tr' : 'en'}>
         <Head>
+          {/* Google tag (gtag.js) */}
+          <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18245678284"></script>
+          <script dangerouslySetInnerHTML={{ __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-18245678284');
+          `}} />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
           <link

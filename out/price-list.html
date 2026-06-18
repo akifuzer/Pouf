@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Pouf — ʼ26 April Price List</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,600;0,700;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Jost', sans-serif; background: #D0C8C0; }
+
+@page { size: A4 portrait; margin: 0; }
+
+.page {
+  width: 210mm;
+  height: 297mm;
+  overflow: hidden;
+  position: relative;
+}
+
+@media screen {
+  body { padding: 24px; display: flex; flex-direction: column; gap: 24px; align-items: center; }
+  .page { box-shadow: 0 4px 48px rgba(0,0,0,0.22); }
+}
+
+@media print {
+  body { background: none; padding: 0; gap: 0; display: block; }
+  .page { page-break-after: always; break-after: page; }
+}
+
+/* ══════════════════════════════════════
+   PAGE 1 — COVER  (unchanged)
+══════════════════════════════════════ */
+.cover { background: #0D0B09; }
+
+.cover-img { position: absolute; inset: 0; }
+.cover-img img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center 38%;
+  opacity: 0.52;
+}
+.cover-img::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(13,11,9,.30) 0%,
+    rgba(13,11,9,.04) 28%,
+    rgba(13,11,9,.50) 62%,
+    rgba(13,11,9,.96) 100%
+  );
+}
+
+.cover-inner {
+  position: relative; z-index: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 12mm;
+}
+.cover-logo { height: 26px; filter: invert(1) brightness(10); }
+.cover-bottom { margin-top: auto; padding-bottom: 4mm; }
+.cover-eyebrow {
+  font-size: 7.5pt; font-weight: 300;
+  letter-spacing: .26em; text-transform: uppercase;
+  color: rgba(255,255,255,.50); margin-bottom: 3.5mm;
+}
+.cover-headline { display: flex; align-items: flex-start; gap: 5mm; }
+.cover-year {
+  font-family: 'Cormorant', serif;
+  font-size: 100pt; font-weight: 700;
+  line-height: .88; color: #E8342A; letter-spacing: -.03em;
+}
+.cover-title-stack { padding-top: 15mm; display: flex; flex-direction: column; gap: 1.5mm; }
+.cover-month {
+  font-size: 19pt; font-weight: 500;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: #ffffff; line-height: 1;
+}
+.cover-pricelist {
+  font-size: 9pt; font-weight: 300;
+  letter-spacing: .24em; text-transform: uppercase;
+  color: rgba(255,255,255,.52);
+}
+.cover-url {
+  font-size: 7.5pt; font-weight: 300;
+  letter-spacing: .14em; color: rgba(255,255,255,.32);
+  margin-top: 7mm;
+}
+
+/* ══════════════════════════════════════
+   PRODUCT PAGES — catalog style
+══════════════════════════════════════ */
+.prod-page {
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  padding: 9mm 11mm 8mm;
+}
+
+.pg-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: .3mm solid #CCCCCC;
+  padding-bottom: 2.5mm;
+  margin-bottom: 4mm;
+  flex-shrink: 0;
+}
+.pg-logo { height: 15px; }
+.pg-label {
+  font-size: 7.5pt; font-weight: 400;
+  letter-spacing: .14em; text-transform: uppercase;
+  color: #888888;
+}
+
+.prod-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6mm;
+  flex: 1;
+}
+.prod-col { display: flex; flex-direction: column; gap: 4.5mm; }
+
+/* — product card — */
+.pc { flex-shrink: 0; }
+
+.pc-img {
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 0;
+  border: .2mm solid #DDDDDD;
+}
+.pc-img img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+.pc-img-xl { height: 34mm; }
+.pc-img-lg { height: 28mm; }
+.pc-img-md { height: 22mm; }
+.pc-img-sm { height: 17mm; }
+.pc-img-xs { height: 13mm; }
+
+/* — catalog table — */
+.pc-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  border: .2mm solid #CCCCCC;
+}
+
+.pc-table thead tr th {
+  background: #1C1108;
+  color: #ffffff;
+  font-family: 'Jost', sans-serif;
+  font-weight: 500;
+  font-size: 6pt;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  padding: 1.8mm 2.2mm;
+  text-align: left;
+}
+.pc-table thead tr th.th-r {
+  text-align: right;
+  width: 14mm;
+}
+
+.pc-table tbody tr:nth-child(even) td { background: #F4F4F4; }
+.pc-table tbody tr:nth-child(odd)  td { background: #FFFFFF; }
+
+.pc-table tbody td {
+  font-family: 'Jost', sans-serif;
+  font-size: 6.2pt;
+  font-weight: 300;
+  padding: 1.35mm 2.2mm;
+  color: #1C1C1C;
+  border-bottom: .15mm solid #E0E0E0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.pc-table tbody tr:last-child td { border-bottom: none; }
+.pc-table tbody td.td-r {
+  text-align: right;
+  font-weight: 400;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  color: #111111;
+}
+.td-cbm { color: #888888 !important; }
+
+/* ══════════════════════════════════════
+   PAGE 4 — CONTACT  (unchanged)
+══════════════════════════════════════ */
+.contact-page {
+  background: #0D0B09;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.contact-bg { position: absolute; inset: 0; }
+.contact-bg img {
+  width: 100%; height: 100%;
+  object-fit: cover; opacity: .09;
+  filter: grayscale(100%);
+}
+.contact-inner {
+  position: relative; z-index: 1;
+  display: flex; flex-direction: column;
+  align-items: center; text-align: center;
+  gap: 5mm;
+}
+.contact-logo { height: 50px; filter: invert(1) brightness(10); }
+.contact-rule { width: 14mm; height: .25mm; background: rgba(255,255,255,.18); }
+.contact-site {
+  font-family: 'Cormorant', serif;
+  font-size: 15pt; font-weight: 600;
+  color: #fff; letter-spacing: .07em;
+}
+.contact-note {
+  font-size: 7pt; font-weight: 300;
+  letter-spacing: .2em; text-transform: uppercase;
+  color: rgba(255,255,255,.32); margin-top: 5mm;
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════
+     PAGE 1 — COVER  (unchanged)
+══════════════════════════════════════ -->
+<div class="page cover">
+  <div class="cover-img">
+    <img src="images/modern/alfeca/pouf-modern-alfeca-01.jpg" alt="">
+  </div>
+  <div class="cover-inner">
+    <img src="brand_assets/main_logo.png" alt="pouf" class="cover-logo">
+    <div class="cover-bottom">
+      <div class="cover-eyebrow">Wholesale Price List</div>
+      <div class="cover-headline">
+        <div class="cover-year">'26</div>
+        <div class="cover-title-stack">
+          <div class="cover-month">April</div>
+          <div class="cover-pricelist">Price List</div>
+        </div>
+      </div>
+      <div class="cover-url">www.pouf.com</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     PAGE 2 — PRODUCTS A
+══════════════════════════════════════ -->
+<div class="page prod-page">
+  <div class="pg-head">
+    <img src="brand_assets/main_logo.png" alt="pouf" class="pg-logo">
+    <span class="pg-label">ʼ26 April Price List</span>
+  </div>
+
+  <div class="prod-grid">
+
+    <!-- LEFT -->
+    <div class="prod-col">
+
+      <!-- ALFECA -->
+      <div class="pc">
+        <div class="pc-img pc-img-lg">
+          <img src="images/modern/alfeca/pouf-modern-alfeca-05.jpg" alt="Alfeca">
+        </div>
+        <table class="pc-table">
+          <colgroup><col><col style="width:14mm"><col style="width:12mm"></colgroup>
+          <thead><tr>
+            <th>Alfeca</th><th class="th-r">USD</th><th class="th-r">CBM</th>
+          </tr></thead>
+          <tbody>
+            <tr><td>Corner 320×320</td>        <td class="td-r">$1,790</td><td class="td-r td-cbm">—</td></tr>
+            <tr><td>3-Seater 210cm</td>         <td class="td-r">$840</td>  <td class="td-r td-cbm">—</td></tr>
+            <tr><td>Corner Module 110cm</td>    <td class="td-r">$470</td>  <td class="td-r td-cbm">—</td></tr>
+            <tr><td>Armless Module 70cm</td>    <td class="td-r">$400</td>  <td class="td-r td-cbm">—</td></tr>
+            <tr><td>Armed Module 100cm</td>     <td class="td-r">$470</td>  <td class="td-r td-cbm">—</td></tr>
+            <tr><td>Music/Sound Module 40cm</td><td class="td-r">$410</td>  <td class="td-r td-cbm">—</td></tr>
+            <tr><td>Sofa Bed Upgrade</td>       <td class="td-r">$280</td>  <td class="td-r td-cbm">—</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- VEGA -->
+      <div class="pc">
+        <div class="pc-img pc-img-lg">
+          <img src="images/modern/vega/pouf-modern-vega-01.jpg" alt="Vega">
+        </div>
+        <table class="pc-table">
+          <colgroup><col><col style="width:14mm"><col style="width:12mm"></colgroup>
+          <thead><tr>
+            <th>Vega</th><th class="th-r">USD</th><th class="th-r">CBM</th>
+          </tr></thead>
+          <tbody>
+            <tr><td>4+3+1</td>                         <td class="td-r">$2,260</td><td class="td-r td-cbm">—</td></tr>
+            <tr><td>4-Seater (TV+Sound+TV) 245cm</td>  <td class="td-r">$1,380</td><td class="td-r td-cbm">—</td></tr>
+            <tr><td>3-Seater Sleeper 220cm</td>         <td class="td-r">$880</td>  <td class="td-r td-cbm">—</td></tr>
+            <tr><td>Armchair 75cm</td>                  <td class="td-r">$400</td>  <td class="td-r td-cbm">—</td></tr>
+            <tr><td>Sound System Module 55cm</td>       <td class="td-r">$410</td>  <td class="td-r td-cbm">—</td></tr>
+            <tr><td>TV Recliner Module 95cm</td>        <td class="td-r">$680</td>  <td class="td-r td-cbm">—</td></tr>
+            <tr><td>Sofa Bed Upgrade</td>               <td class="td-r">$280</td>  <td class="td-r td-cbm">—</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- VERONA -->
+      <div class="pc">
+        <div class="pc-img pc-img-md">
+          <img src="images/modern/asya-corner-set/pouf-modern-asya-corner-set-01.jpg" alt="Verona">
+        </div>
+        <table class="pc-table">
+          <colgroup><col><col style="width:14mm"><col style="width:12mm"></colgroup>
+          <thead><tr>
+            <th>Verona</th><th class="th-r">USD</th><th class="th-r">CBM</th>
+          </tr></thead>
+          <tbody>
+            <tr><td>Corner 320×245</td>  <td class="td-r">$1,320</td><td class="td-r td-cbm">—</td></tr>
+            <tr><td>Armed Module</td>    <td class="td-r">$510</td>  <td class="td-r td-cbm">—</td></tr>
+            <tr><td>Corner Module</td>   <td class="td-r">$510</td>  <td class="td-r td-cbm">—</td></tr>
+            <tr><td>Center Module</td>   <td class="td-r">$400</td>  <td class="td-r td-cbm">—</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div><!-- /left -->
+
+    <!-- RIGHT -->
+    <div class="prod-col">
+
+      <!-- ARES CORNER -->
+      <div class="pc">
+        <div class="pc-img pc-img-lg">
+          <img src="images/modern/ares/pouf-modern-ares-01.jpg" alt="Ares Corner">
+        </div>
+        <table class="pc-table">
+          <colgroup><col><col style="width:14mm"><col style="width:12mm"></colgroup>
+          <thead><tr>
+            <th>Ares Corner</th><th class="th-r">USD</th><th class="th-r">CBM</th>
+          </tr></thead>
+          <tbody>
+            <tr><td>Corner 310×345</td>            <td class="td-r">$2,010</td><td class="td-r td-cbm">—</td></tr>
+            <tr><td>3-Seater 200cm</td>             <td class="td-r">$840</td>  <td class="td-r td-cbm">—</td></tr>
+            <tr><td>Corner Module 110cm</td>        <td class="td-r">$470</td>  <td class="td-r td-cbm">—</td></tr>
+            <tr><td>Armless Module 80cm</td>        <td class="td-r">$400</td>  <td class="td-r td-cbm">—</td></tr>
+            <tr><td>Armed TV Module 100cm</td>      <td class="td-r">$680</td>  <td class="td-r td-cbm">—</td></tr>
+            <tr><td>Music/Sound Module 55cm</td>    <td class="td-r">$410</td>  <td class="td-r td-cbm">—</td></tr>
+            <tr><td>Sofa Bed Upgrade</td>           <td class="td-r">$280</td>  <td class="td-r td-cbm">—</td></tr>
+            <tr><td>TV Recliner Mech. Upgrade</td>  <td class="td-r">$410</td>  <td class="td-r td-cbm">—</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- MAGNUM -->
+      <div class="pc">
+        <div class="pc-img pc-img-lg">
+          <img src="images/modern/magnum/pouf-modern-magnum-01.jpg" alt="Magnum">
+        </div>
+        <table class="pc-table">
+          <colgroup><col><col style="width:14mm"><col style="width:12mm"></colgroup>
+          <thead><tr>
+            <th>Magnum</th><th class="th-r">USD</th><th class="th-r">CBM</th>
+          </tr></thead>
+          <tbody>
+            <tr><td>4+3+1 Single Sleeper</td>        <td class="td-r">$1,730</td><td class="td-r td-cbm">—</td></tr>
+            <tr><td>3-Seater Sleeper 230cm</td>       <td class="td-r">$830</td>  <td class="td-r td-cbm">—</td></tr>
+            <tr><td>4-Seater Non-Sleeper 260cm</td>   <td class="td-r">$890</td>  <td class="td-r td-cbm">—</td></tr>
+            <tr><td>Armchair 80cm</td>                <td class="td-r">$410</td>  <td class="td-r td-cbm">—</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div><!-- /right -->
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     PAGE 3 — PRODUCTS B
+══════════════════════════════════════ -->
+<div class="page prod-page">
+  <div class="pg-head">
+    <img src="brand_assets/main_logo.png" alt="pouf" class="pg-logo">
+    <span class="pg-label">ʼ26 April Price List</span>
+  </div>
+
+  <div class="prod-grid">
+
+    <!-- LEFT -->
+    <div class="prod-col">
+
+      <!-- ASYA WITH CHEST -->
+      <div class="pc">
+        <div class="pc-img pc-img-sm">
+          <img src="images/modern/asya/pouf-modern-asya-01.jpg" alt="Asya">
+        </div>
+        <table class="pc-table">
+          <colgroup><col><col style="width:14mm"><col style="width:12mm"></colgroup>
+          <thead><tr>
+            <th>Asya <span style="font-weight:300;letter-spacing:0">(with chest)</span></th><th class="th-r">USD</th><th class="th-r">CBM</th>
+          </tr></thead>
+          <tbody>
+            <tr><td>4+3+1</td>                 <td class="td-r">$1,830</td><td class="td-r td-cbm">—</td></tr>
+            <tr><td>3+3+1</td>                 <td class="td-r">$1,740</td><td class="td-r td-cbm">—</td></tr>
+            <tr><td>4-Seater</td>              <td class="td-r">$940</td>  <td class="td-r td-cbm">—</td></tr>
+            <tr><td>3-Seater</td>              <td class="td-r">$850</td>  <td class="td-r td-cbm">—</td></tr>
+            <tr><td>Armchair</td>              <td class="td-r">$440</td>  <td class="td-r td-cbm">—</td></tr>
+            <tr><td>Coffee Table Module</td>   <td class="td-r">$290</td>  <td class="td-r td-cbm">—</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- ASYA CORNER WITH DAYBED -->
+      <div class="pc">
+        <div class="pc-img pc-img-sm">
+          <img src="images/modern/asya-corner-set/pouf-modern-asya-corner-set-02.jpg" alt="Asya Corner w/ Daybed">
+        </div>
+        <table class="pc-table">
+          <colgroup><col><col style="width:14mm"><col style="width:12mm"></colgroup>
+          <thead><tr>
+            <th>Asya Corner w/ Daybed <span style="font-weight:300;letter-spacing:0">(chest)</span></th><th class="th-r">USD</th><th class="th-r">CBM</th>
+          </tr></thead>
+          <tbody>
+            <tr><td>Corner w/ Daybed 320×240</td> <td class="td-r">$1,270</td><td class="td-r td-cbm">—</td></tr>
+            <tr><td>Armed Module</td>              <td class="td-r">$520</td>  <td class="td-r td-cbm">—</td></tr>
+            <tr><td>Armless Module 80cm</td>       <td class="td-r">$410</td>  <td class="td-r td-cbm">—</td></tr>
+            <tr><td>Corner Piece</td>              <td class="td-r">$500</td>  <td class="td-r td-cbm">—</td></tr>
+            <tr><td>Daybed</td>                    <td class="td-r">$430</td>  <td class="td-r td-cbm">—</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- ALFA CORNER WITH DAYBED -->
+      <div class="pc">
+        <div class="pc-img pc-img-sm">
+          <img src="images/modern/alfa/pouf-modern-alfa-02.jpg" alt="Alfa Corner w/ Daybed">
+        </div>
+        <table class="pc-table">
+          <colgroup><col><col style="width:14mm"><col style="width:12mm"></colgroup>
+          <thead><tr>
+            <th>Alfa Corner w/ Daybed <span style="font-weight:300;letter-spacing:0">(no chest)</span></th><th class="th-r">USD</th><th class="th-r">CBM</th>
+          </tr></thead>
+          <tbody>
+            <tr><td>Corner w/ Daybed 320×240</td> <td class="td-r">$1,180</td><td class="td-r td-cbm">—</td></tr>
+            <tr><td>Armed Module</td>              <td class="td-r">$500</td>  <td class="td-r td-cbm">—</td></tr>
+            <tr><td>Armless Module 80cm</td>       <td class="td-r">$390</td>  <td class="td-r td-cbm">—</td></tr>
+            <tr><td>Corner Piece</td>              <td class="td-r">$470</td>  <td class="td-r td-cbm">—</td></tr>
+            <tr><td>Daybed</td>                    <td class="td-r">$420</td>  <td class="td-r td-cbm">—</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- LIZBON -->
+      <div class="pc">
+        <div class="pc-img pc-img-xs">
+          <img src="images/modern/alfa/pouf-modern-alfa-01.jpg" alt="Lizbon">
+        </div>
+        <table class="pc-table">
+          <colgroup><col><col style="width:14mm"><col style="width:12mm"></colgroup>
+          <thead><tr>
+            <th>Lizbon</th><th class="th-r">USD</th><th class="th-r">CBM</th>
+          </tr></thead>
+          <tbody>
+            <tr><td>3+3+1</td>   <td class="td-r">$1,530</td><td class="td-r td-cbm">—</td></tr>
+            <tr><td>3-Seater</td><td class="td-r">$760</td>  <td class="td-r td-cbm">—</td></tr>
+            <tr><td>Armchair</td><td class="td-r">$410</td>  <td class="td-r td-cbm">—</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div><!-- /left -->
+
+    <!-- RIGHT -->
+    <div class="prod-col">
+
+      <!-- ASYA FULL CORNER -->
+      <div class="pc">
+        <div class="pc-img pc-img-sm">
+          <img src="images/modern/asya-corner-set/pouf-modern-asya-corner-set-03.jpg" alt="Asya Full Corner">
+        </div>
+        <table class="pc-table">
+          <colgroup><col><col style="width:14mm"><col style="width:12mm"></colgroup>
+          <thead><tr>
+            <th>Asya Full Corner <span style="font-weight:300;letter-spacing:0">(with chest)</span></th><th class="th-r">USD</th><th class="th-r">CBM</th>
+          </tr></thead>
+          <tbody>
+            <tr><td>Full Corner 320×360</td>  <td class="td-r">$1,660</td><td class="td-r td-cbm">—</td></tr>
+            <tr><td>Armed Module</td>         <td class="td-r">$520</td>  <td class="td-r td-cbm">—</td></tr>
+            <tr><td>Corner Module</td>        <td class="td-r">$500</td>  <td class="td-r td-cbm">—</td></tr>
+            <tr><td>Armless Module 80cm</td>  <td class="td-r">$410</td>  <td class="td-r td-cbm">—</td></tr>
+            <tr><td>Coffee Table Module</td>  <td class="td-r">$290</td>  <td class="td-r td-cbm">—</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- ALFA WITHOUT CHEST -->
+      <div class="pc">
+        <div class="pc-img pc-img-sm">
+          <img src="images/modern/alfa/pouf-modern-alfa-03.jpg" alt="Alfa">
+        </div>
+        <table class="pc-table">
+          <colgroup><col><col style="width:14mm"><col style="width:12mm"></colgroup>
+          <thead><tr>
+            <th>Alfa <span style="font-weight:300;letter-spacing:0">(no chest)</span></th><th class="th-r">USD</th><th class="th-r">CBM</th>
+          </tr></thead>
+          <tbody>
+            <tr><td>4+3+1</td>               <td class="td-r">$1,710</td><td class="td-r td-cbm">—</td></tr>
+            <tr><td>3+3+1</td>               <td class="td-r">$1,630</td><td class="td-r td-cbm">—</td></tr>
+            <tr><td>4-Seater</td>            <td class="td-r">$870</td>  <td class="td-r td-cbm">—</td></tr>
+            <tr><td>3-Seater</td>            <td class="td-r">$790</td>  <td class="td-r td-cbm">—</td></tr>
+            <tr><td>Armchair</td>            <td class="td-r">$440</td>  <td class="td-r td-cbm">—</td></tr>
+            <tr><td>Coffee Table Module</td> <td class="td-r">$280</td>  <td class="td-r td-cbm">—</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- ALFA FULL CORNER -->
+      <div class="pc">
+        <div class="pc-img pc-img-sm">
+          <img src="images/modern/alfa/pouf-modern-alfa-04.jpg" alt="Alfa Full Corner">
+        </div>
+        <table class="pc-table">
+          <colgroup><col><col style="width:14mm"><col style="width:12mm"></colgroup>
+          <thead><tr>
+            <th>Alfa Full Corner <span style="font-weight:300;letter-spacing:0">(no chest)</span></th><th class="th-r">USD</th><th class="th-r">CBM</th>
+          </tr></thead>
+          <tbody>
+            <tr><td>Full Corner 320×360</td> <td class="td-r">$1,530</td><td class="td-r td-cbm">—</td></tr>
+            <tr><td>Armed Module</td>        <td class="td-r">$500</td>  <td class="td-r td-cbm">—</td></tr>
+            <tr><td>Corner Module</td>       <td class="td-r">$470</td>  <td class="td-r td-cbm">—</td></tr>
+            <tr><td>Armless Module 80cm</td> <td class="td-r">$390</td>  <td class="td-r td-cbm">—</td></tr>
+            <tr><td>Coffee Table Module</td> <td class="td-r">$280</td>  <td class="td-r td-cbm">—</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div><!-- /right -->
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     PAGE 4 — CONTACT  (unchanged)
+══════════════════════════════════════ -->
+<div class="page contact-page">
+  <div class="contact-bg">
+    <img src="images/modern/alfeca/pouf-modern-alfeca-04.jpg" alt="">
+  </div>
+  <div class="contact-inner">
+    <img src="brand_assets/main_logo.png" alt="pouf" class="contact-logo">
+    <div class="contact-rule"></div>
+    <div class="contact-site">www.pouf.com</div>
+    <div class="contact-note">Browse our collections on Instagram · @pouf</div>
+  </div>
+</div>
+
+</body>
+</html>
