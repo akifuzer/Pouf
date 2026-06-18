@@ -19,6 +19,18 @@ export default class MyDocument extends Document {
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', 'AW-18245678284');
+            function gtag_report_conversion(url) {
+              var callback = function () {
+                if (typeof(url) != 'undefined') { window.location = url; }
+              };
+              gtag('event', 'conversion', {
+                'send_to': 'AW-18245678284/Yz1WCJb54cAcEMzpm_xD',
+                'value': 1.0,
+                'currency': 'TRY',
+                'event_callback': callback
+              });
+              return false;
+            }
           `}} />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />

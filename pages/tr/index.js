@@ -64,6 +64,9 @@ export default function HomeTR() {
       })
       if (res.ok) {
         setFormSent(true)
+        if (typeof window.gtag_report_conversion === 'function') {
+          window.gtag_report_conversion()
+        }
       } else {
         setFormError(true)
       }
