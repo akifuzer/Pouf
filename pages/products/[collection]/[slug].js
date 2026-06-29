@@ -92,12 +92,6 @@ export default function ProductPage({ product, collection, relatedProducts }) {
       },
     },
     category: collectionLabel,
-    offers: {
-      '@type': 'Offer',
-      availability: 'https://schema.org/InStock',
-      description: 'Contact for B2B trade pricing and MOQ details',
-      seller: { '@type': 'Organization', name: 'Pouf Furniture' },
-    },
   }
 
   const breadcrumbLd = {
